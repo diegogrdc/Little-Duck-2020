@@ -11,7 +11,7 @@ Each grammar component is thoroughly testes in `tests/` folder, but you can run 
 ### Run Parser
 
 To run parser, you need to install Rust  
-> https://rust-lang.github.io/rustup/installation/index.html
+> https://www.rust-lang.org/tools/install
 
 After installing Rust, open the project and run the command 
 
