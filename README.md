@@ -1,11 +1,11 @@
 # Little-Duck-2020
 Scanner/Parser for a toy programming language called "LittleDuck2020" for my compiler class on Semester Jan-Jun 2022
+Scanner/Parser was implemented with the grammar derived from the following picture:
+![image](LittleDuck.png)
 
 ## LALRPOP
 Parser was created using LALRPOP (https://lalrpop.github.io/lalrpop/index.html)
 Parser has a deafult scanner that ignores whitespace characters.
-Scanner was impleemented with the defined grammar, as shown in the following picture:
-![image](LittleDuck.png)
 Each grammar component is thoroughly testes in `tests/` folder, but you can run it and try it with your own inputs yourself!
 
 ### Run Parser
