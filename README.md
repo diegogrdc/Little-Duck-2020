@@ -18,4 +18,5 @@ After installing Rust, open the project and run the command
 > cargo run
 
 Parser will give a message if program was parsed correctly, or show the error found when parsing.
-Parser takes file `input.txt` as input (File is found on `tests/` folder. Try changing this file to check out parser behaviour with different inputs.
+Parser takes file `input.txt` as input (File is found on `tests/` folder). 
+Try changing this file to check out parser behaviour with different inputs.
