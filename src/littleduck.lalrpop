@@ -1,0 +1,119 @@
+// Grammar
+grammar;
+
+pub PROGRAMA: String = {
+    "program" <id:ID> ";" <p:PROGRAMA2> => format!("program {}; {}", id, p),
+};
+
+pub PROGRAMA2: String = {
+    <b:BLOQUE> => b,
+    <v:VARS> <b:BLOQUE> => format!("{} {}", v, b),
+}
+
+pub VARS: String = {
+    "var" <v:VARS2> => format!("var {}", v),
+};
+
+pub VARS2: String = {
+    <id:ID> "," <v:VARS2> => format!("{}, {}", id, v),
+    <id:ID> ":" <t:TIPO> ";" <v:VARS2> => format!("{}: {}; {}", id, t, v),
+    <id:ID> ":" <t:TIPO> ";" => format!("{}: {};", id, t),
+};
+
+pub BLOQUE: String = {
+    "{" <es:ESTATUTOS> "}" => format!("{{{}}}", es),
+    "{" "}" => "{}".to_string(),
+};
+
+pub ESTATUTOS: String = {
+    <e:ESTATUTO> => e,
+    <es:ESTATUTOS> <e:ESTATUTO> => format!("{} {}", es, e),
+};
+
+pub ESTATUTO: String = {
+    <a:ASIGNACION> => a,
+    <c:CONDICION> => c,
+    <e:ESCRITURA> => e,
+};
+
+pub CONDICION: String = {
+    "if" "(" <e:EXPRESION> ")" <b:BLOQUE> ";" => format!("if({}){}", e, b),
+    "if" "(" <e:EXPRESION> ")" <b:BLOQUE> "else" <b2:BLOQUE> ";" => format!("if({}){}else{}", e, b, b2),
+};
+
+pub ASIGNACION: String = {
+    <id:ID> "=" <e:EXPRESION> ";" => format!("{}={};", id, e),
+};
+
+pub ESCRITURA: String = {
+    "print" "(" <e:ESCRITURA2> ")" ";" => format!("print({});", e),
+};
+
+ESCRITURA2: String = {
+    <e:EXPRESION> => e,
+    <e:EXPRESION> "," <e2:ESCRITURA2> => format!("{}, {}", e, e2),
+    <s:CTESTR> => s,
+    <s:CTESTR> "," <e2:ESCRITURA2> => format!("{}, {}", s, e2),
+};
+
+pub TIPO : String = {
+    "int" => "int".to_string(),
+    "float" => "float".to_string(),
+};
+
+pub EXPRESION: String = {
+    <e:EXP> => e,
+    <e1:EXP> <c:CMP> <e2:EXP> => format!("{} {} {}", e1, c, e2),
+};
+
+pub EXP: String = {
+    <t:TERMINO> => t, 
+    <t:TERMINO> "+" <e:EXP> => format!("{} + {}", t, e), 
+    <t:TERMINO> "-" <e:EXP> => format!("{} - {}", t, e), 
+};
+
+pub EXP2: String = {
+    "" => "".to_string(),
+    "+" <e:EXP> => format!("+ {}", e),
+    "-" <e:EXP> => format!("- {}", e),
+};
+
+pub CMP: String = {
+    ">" => ">".to_string(), 
+    "<" => "<".to_string(), 
+    "<>" => "<>".to_string(), 
+};
+
+pub TERMINO: String = {
+    <f:FACTOR> => f,
+    <f:FACTOR> "*" <t:TERMINO> => format!("{} * {}", f, t),
+    <f:FACTOR> "/" <t:TERMINO> => format!("{} / {}", f, t),
+};
+
+pub FACTOR: String = {
+    "(" <e:EXP> ")" => format!("({})", e),
+    <f:FACTOR2> => f,
+};
+
+pub FACTOR2: String = {
+    <v:VARCTE> => v,
+    "+" <v:VARCTE> => format!("+ {}", v),
+    "-" <v:VARCTE> => format!("- {}", v),
+}
+
+pub VARCTE: String = {
+    <id:ID> => id,
+    <i:CTEI> => i,
+    <f:CTEF> => f,
+};
+
+// Regex terms (Terminals)
+
+pub ID: String = <id:r"[A-Za-z]\w*"> => String::from(id);
+
+pub CTEI: String = <i:r"[+-]?(\d+)"> => String::from(i);
+
+pub CTEF: String = <f:r"[+-]?(\d+)\.(\d*)"> => String::from(f);
+
+pub CTESTR: String = <s:r#""[^"]*""#> => String::from(s);
+
