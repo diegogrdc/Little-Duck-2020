@@ -1,5 +1,5 @@
 # Little-Duck-2020
-Created a Scanner/Parser for a toy programming language called "LittleDuck2020" for my compiler class
+Scanner/Parser for a toy programming language called "LittleDuck2020" for my compiler class on Semester Jan-Jun 2022
 
 ## LALRPOP
 Parser was created using LALRPOP (https://lalrpop.github.io/lalrpop/index.html)
