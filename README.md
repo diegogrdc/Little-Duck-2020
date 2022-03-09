@@ -5,7 +5,7 @@ Created a Scanner/Parser for a toy programming language called "LittleDuck2020" 
 Parser was created using LALRPOP (https://lalrpop.github.io/lalrpop/index.html)
 Parser has a deafult scanner that ignores whitespace characters.
 Scanner was impleemented with the defined grammar, as shown in the following picture:
-![image](little-duck.png)
+![image](LittleDuck.png)
 Each grammar component is thoroughly testes in tests/ folder, but you can run it and try it with your own inputs yourself!
 
 ### Run Parser
