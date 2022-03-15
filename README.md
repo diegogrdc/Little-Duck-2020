@@ -3,12 +3,14 @@ Lexers and Scanners/Parsers for a toy programming language called "LittleDuck202
 Lexers and Scanners/Parsers  were implemented with the grammar derived from the language defined from the following picture:
 ![image](LittleDuck.png)
 
-## LALRPOP
+## Tools used for code analysis 
+
+### LALRPOP
 First tool used to create a parser was LALRPOP (https://lalrpop.github.io/lalrpop/index.html)
 Parser has a deafult scanner that ignores whitespace characters.
 Each grammar component is thoroughly testes in `tests/` folder, but you can run it and try it with your own inputs yourself!
 
-## grmtools
+### grmtools
 
 Second tool used to create a lexer and parser was grmtools. This tool uses an advanced implementation of Lex&Yacc to analyze a grammar through a lexer and a parser. You can try it yourself by changing the input.txt file found on `src` folder. 
 
