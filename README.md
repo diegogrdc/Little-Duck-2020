@@ -12,7 +12,7 @@ Each grammar component is thoroughly testes in `tests/` folder, but you can run 
 
 ### grmtools
 
-Second tool used to create a lexer and parser was grmtools. This tool uses an advanced implementation of Lex&Yacc to analyze a grammar through a lexer and a parser. You can try it yourself by changing the input.txt file found on `src` folder. 
+Second tool used to create a lexer and parser was grmtools (https://softdevteam.github.io/grmtools/master/book/index.html). This tool uses an advanced implementation of Lex&Yacc to analyze a grammar through a lexer and a parser. You can try it yourself by changing the input.txt file found on `src` folder. 
 
 ## Running lexers/parsers 
 
