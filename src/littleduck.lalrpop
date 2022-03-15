@@ -72,12 +72,6 @@ pub EXP: String = {
     <t:TERMINO> "-" <e:EXP> => format!("{} - {}", t, e), 
 };
 
-pub EXP2: String = {
-    "" => "".to_string(),
-    "+" <e:EXP> => format!("+ {}", e),
-    "-" <e:EXP> => format!("- {}", e),
-};
-
 pub CMP: String = {
     ">" => ">".to_string(), 
     "<" => "<".to_string(), 
